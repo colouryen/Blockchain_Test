@@ -1,0 +1,39 @@
+Reference : http://mac-dev-env.patrickbougie.com/openssl/
+
+1. Get openssl
+  cd /usr/local/src
+  wget https://www.openssl.org/source/openssl-1.1.1-pre1.tar.gz
+
+  tar -xzvf openssl-1.1.1-pre1.tar.gz
+  cd openssl-1.1.1-pre1
+
+2. Install
+  make
+  make install
+
+3. Create a symbolic link to /usr/local/openssl
+  sudo ln -s /openssl-1.1.1-pre1 /usr/local/openssl
+
+4. Shell
+  echo 'export PATH=/usr/local/openssl/bin:$PATH' >> ~/.bash_profile
+  echo 'export MANPATH=/usr/local/openssl/share/man:$MANPATH' >> ~/.bash_profile
+
+5. openssl version -a
+
+
+
+6. Modify test.sh to ...
+Reference : https://askubuntu.com/questions/194193/why-do-i-get-undefined-reference-errors-when-linking-against-openssl
+            https://stackoverflow.com/questions/13784434/how-to-use-openssls-sha256-functions
+
+#!/bin/sh
+OPENSSL_INCLUDE=/usr/local/openssl/include/
+touch $1.c
+gcc $1.c -o $1.out -ansi -Wall -Wno-deprecated-declarations -Wno-long-long -I $OPENSSL_INCLUDE -pedantic -lcrypto
+./$1.out
+
+
+
+7. Run Simple Blockchain code
+./test.sh file_name (without extension .c)
+./all-tests.sh
