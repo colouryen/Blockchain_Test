@@ -1,15 +1,24 @@
 # Blockchain_test
 
-These are the Klee tests on popular Blockchain codes.
+In the following contents, we will elaborate in detail how to apply Klee tests on popular Blockchain codes.
 
-Therefore, first, we have to setup Klee testing environment to test our targets.
+
+First, we have to setup a test environment of Klee in order to test our targets.
 
 A. Install Docker and Klee
+    In this section, users have to install Docker first and then install Klee on Docker.
+    
+    Users can run Klee tests in a virtual environment that Docker has created.
+    
+    More details and files can be found here : https://klee.github.io/
 
-    Details and files can be found here : https://klee.github.io/
 
 
-B. Build up Bolckchain environment
+Second, after Klee has been settled, users are able to start doing tests on Blockchain codes.
+
+Before running Blockchain codes, users have to build up an environment for Blockchain.
+
+B. Build up Blockchain environment
 
     1. Get openssl
        $ cd /usr/local/src
@@ -42,7 +51,8 @@ B. Build up Bolckchain environment
        ./test.sh file_name (without extension .c)
        ./all-tests.sh
        
-       
+
+
 After all these miscellaneous installations, we can start testing our targets.
 
 Sample codes and tutorials can be found here : http://klee.github.io/tutorials/
